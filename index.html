@@ -3,11 +3,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+   
     <title>Gang Boyz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <section>
@@ -17,13 +15,13 @@
     <section class="py-24 w-full px-1 md:px-0">
       <!-- Mint Section -->
       <div
-        class="flex flex-col md:flex-row gap-12 md:gap-0 w-full md:w-2/3 rounded-2xl justify-between overflow-hidden p-12 mx-auto bg-gray-300"
+        class="flex flex-col md:flex-row gap-12 md:gap-0 w-full md:w-2/3 rounded-2xl justify-between overflow-hidden p-12 mx-auto  bg-white shadow-xl"
       >
         <div
           class="basis-1/2 text-xl md:text-2xl flex flex-col gap-3 md:gap-0 items-center justify-between uppercase md:pr-12"
         >
           <h1 class="pb-3 uppercase text-3xl md:text-5xl italic">Mint</h1>
-          <h2 class="italic">Public Mint Open</h2>
+          <h2 class="italic text-[#70d7fa]">Public Mint Open</h2>
           <div class="w-full flex flex-col gap-3 md:gap-0">
             <div class="inline-flex items-center justify-between">
               <div>Free:</div>
@@ -44,12 +42,12 @@
           <div>
             <button
               onclick="connectWallet()"
-              class="uppercase bg-red-400 rounded-xl px-6 py-3 font-bold text-white italic"
+              class="uppercase  bg-[#70d7fa] rounded-xl  px-6 py-3 font-bold text-black hover:text-white transition-all ease-in-out  italic shadow-md"
             >
               Connect
             </button>
             <button
-              class="uppercase bg-red-400 rounded-xl px-6 py-3 font-bold text-white italic"
+              class="uppercase  bg-[#70d7fa] rounded-xl px-6 py-3 font-bold text-black hover:text-white transition-all ease-in-out  italic shadow-md"
               onclick="mintNFT()"
             >
               Mint NFT
@@ -65,9 +63,9 @@
     <!-- About -->
     <section class="py-24 w-full px-1 md:px-0">
       <div
-        class="w-full md:w-[80%] bg-red-400 rounded-2xl mx-auto text-center p-9"
+        class="w-full md:w-[80%] bg-white rounded-2xl mx-auto text-center p-9 shadow-xl"
       >
-        <h1 class="text-3xl md:text-5xl pb-6">About</h1>
+        <h1 class="text-3xl md:text-5xl pb-6 text-[#70d7fa]">About</h1>
         <p class="text-xl md:text-2xl">
           These 5,555 Gang Boyz collectible characters were designed as a
           tribute to the legendary CryptoPunks, one of the first and most
@@ -79,9 +77,9 @@
     </section>
 
     <!-- Social Links -->
-    <section class="py-24 w-full text-center px-1 md:px-0">
-      <div class="w-full md:w-1/2 bg-red-400 rounded-2xl mx-auto p-9">
-        <h1 class="text-3xl md:text-5xl">Get in the box</h1>
+    <section class="py-24 w-full text-center px-1 md:px-0 ">
+      <div class="w-full md:w-1/2 bg-white rounded-2xl mx-auto p-9 shadow-xl">
+        <h1 class="text-3xl md:text-5xl text-[#70d7fa]">Get in the box</h1>
         <div class="flex items-center justify-center w-full gap-6 pt-6">
           <!-- opensea -->
           <a href="https://opensea.io/collection/gang-boyz-1" target="_blank">
