@@ -3,9 +3,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-   
     <title>Gang Boyz</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0-rc.0/web3.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/web3modal@1.9.8/dist/index.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"
+    ></script>
   </head>
   <body>
     <section>
@@ -15,7 +31,7 @@
     <section class="py-24 w-full px-1 md:px-0">
       <!-- Mint Section -->
       <div
-        class="flex flex-col md:flex-row gap-12 md:gap-0 w-full md:w-2/3 rounded-2xl justify-between overflow-hidden p-12 mx-auto  bg-white shadow-xl"
+        class="flex flex-col md:flex-row gap-12 md:gap-0 w-full md:w-2/3 rounded-2xl justify-between overflow-hidden p-12 mx-auto bg-white shadow-xl"
       >
         <div
           class="basis-1/2 text-xl md:text-xl flex flex-col gap-3 md:gap-0 items-center justify-between uppercase md:pr-12"
@@ -42,20 +58,13 @@
           </div>
 
           <!-- Connect / Mint Button -->
-
-          <div class="flex flex-col md:flex-row gap-3">
-            <button
-              onclick="connectWallet()"
-              class="uppercase  bg-[#70d7fa] rounded-xl  px-6 py-3  text-black hover:text-white transition-all ease-in-out  italic shadow-md"
-            >
-              Connect
-            </button>
-            <button
-              class="uppercase  bg-[#70d7fa] rounded-xl px-6 py-3  text-black hover:text-white transition-all ease-in-out  italic shadow-md"
-              onclick="mintNFT()"
-            >
-              Mint NFT
-            </button>
+          <div>
+            <script type="module" src="https://cdn.nft-generator.art/js-sdk/v1.4.5/nft-art-generator-sdk/nft-art-generator-sdk.esm.js"></script>
+            <script nomodule src="https://cdn.nft-generator.art/js-sdk/v1.4.5/nft-art-generator-sdk/nft-art-generator-sdk.js"></script>
+            <meta name="nft-art-contract-abi" content="W3sibmFtZSI6ImFmZmlsaWF0ZXNPZiIsInR5cGUiOiJmdW5jdGlvbiIsImlucHV0cyI6W3sibmFtZSI6Im93bmVyIiwidHlwZSI6ImFkZHJlc3MiLCJpbnRlcm5hbFR5cGUiOiJhZGRyZXNzIn1dLCJvdXRwdXRzIjpbeyJuYW1lIjoiIiwidHlwZSI6InVpbnQyNTYiLCJpbnRlcm5hbFR5cGUiOiJ1aW50MjU2In1dLCJzdGF0ZU11dGFiaWxpdHkiOiJ2aWV3In0seyJuYW1lIjoiYmFsYW5jZU9mIiwidHlwZSI6ImZ1bmN0aW9uIiwiaW5wdXRzIjpbeyJuYW1lIjoib3duZXIiLCJ0eXBlIjoiYWRkcmVzcyIsImludGVybmFsVHlwZSI6ImFkZHJlc3MifV0sIm91dHB1dHMiOlt7Im5hbWUiOiIiLCJ0eXBlIjoidWludDI1NiIsImludGVybmFsVHlwZSI6InVpbnQyNTYifV0sInN0YXRlTXV0YWJpbGl0eSI6InZpZXcifSx7Im5hbWUiOiJjb3N0IiwidHlwZSI6ImZ1bmN0aW9uIiwiaW5wdXRzIjpbXSwib3V0cHV0cyI6W3sibmFtZSI6IiIsInR5cGUiOiJ1aW50MjU2IiwiaW50ZXJuYWxUeXBlIjoidWludDI1NiJ9XSwic3RhdGVNdXRhYmlsaXR5IjoidmlldyJ9LHsibmFtZSI6Im1heEZyZWVNaW50IiwidHlwZSI6ImZ1bmN0aW9uIiwiaW5wdXRzIjpbXSwib3V0cHV0cyI6W3sibmFtZSI6IiIsInR5cGUiOiJ1aW50MzIiLCJpbnRlcm5hbFR5cGUiOiJ1aW50MzIifV0sInN0YXRlTXV0YWJpbGl0eSI6InZpZXcifSx7Im5hbWUiOiJtYXhQZXJNaW50IiwidHlwZSI6ImZ1bmN0aW9uIiwiaW5wdXRzIjpbXSwib3V0cHV0cyI6W3sibmFtZSI6IiIsInR5cGUiOiJ1aW50MzIiLCJpbnRlcm5hbFR5cGUiOiJ1aW50MzIifV0sInN0YXRlTXV0YWJpbGl0eSI6InZpZXcifSx7Im5hbWUiOiJtYXhQZXJXYWxsZXQiLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOltdLCJvdXRwdXRzIjpbeyJuYW1lIjoiIiwidHlwZSI6InVpbnQzMiIsImludGVybmFsVHlwZSI6InVpbnQzMiJ9XSwic3RhdGVNdXRhYmlsaXR5IjoidmlldyJ9LHsibmFtZSI6Im1pbnQiLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOlt7Im5hbWUiOiJjb3VudCIsInR5cGUiOiJ1aW50MjU2IiwiaW50ZXJuYWxUeXBlIjoidWludDI1NiJ9XSwib3V0cHV0cyI6W10sInN0YXRlTXV0YWJpbGl0eSI6InBheWFibGUifSx7Im5hbWUiOiJtaW50Q29zdE9mT3duZXIiLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOlt7Im5hbWUiOiJfYWRkcmVzcyIsInR5cGUiOiJhZGRyZXNzIiwiaW50ZXJuYWxUeXBlIjoiYWRkcmVzcyJ9LHsibmFtZSI6Il9jb3VudCIsInR5cGUiOiJ1aW50MjU2IiwiaW50ZXJuYWxUeXBlIjoidWludDI1NiJ9XSwib3V0cHV0cyI6W3sibmFtZSI6IiIsInR5cGUiOiJ1aW50MjU2IiwiaW50ZXJuYWxUeXBlIjoidWludDI1NiJ9XSwic3RhdGVNdXRhYmlsaXR5IjoidmlldyJ9LHsibmFtZSI6Im5hbWUiLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOltdLCJvdXRwdXRzIjpbeyJuYW1lIjoiIiwidHlwZSI6InN0cmluZyIsImludGVybmFsVHlwZSI6InN0cmluZyJ9XSwic3RhdGVNdXRhYmlsaXR5IjoidmlldyJ9LHsibmFtZSI6Im9wZW4iLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOltdLCJvdXRwdXRzIjpbeyJuYW1lIjoiIiwidHlwZSI6ImJvb2wiLCJpbnRlcm5hbFR5cGUiOiJib29sIn1dLCJzdGF0ZU11dGFiaWxpdHkiOiJ2aWV3In0seyJuYW1lIjoib3duZXIiLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOltdLCJvdXRwdXRzIjpbeyJuYW1lIjoiIiwidHlwZSI6ImFkZHJlc3MiLCJpbnRlcm5hbFR5cGUiOiJhZGRyZXNzIn1dLCJzdGF0ZU11dGFiaWxpdHkiOiJ2aWV3In0seyJuYW1lIjoicHJlc2FsZU1pbnQiLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOlt7Im5hbWUiOiJjb3VudCIsInR5cGUiOiJ1aW50MzIiLCJpbnRlcm5hbFR5cGUiOiJ1aW50MzIifSx7Im5hbWUiOiJwcm9vZiIsInR5cGUiOiJieXRlczMyW10iLCJpbnRlcm5hbFR5cGUiOiJieXRlczMyW10ifV0sIm91dHB1dHMiOltdLCJzdGF0ZU11dGFiaWxpdHkiOiJwYXlhYmxlIn0seyJuYW1lIjoicHJlc2FsZU9wZW4iLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOltdLCJvdXRwdXRzIjpbeyJuYW1lIjoiIiwidHlwZSI6ImJvb2wiLCJpbnRlcm5hbFR5cGUiOiJib29sIn1dLCJzdGF0ZU11dGFiaWxpdHkiOiJ2aWV3In0seyJuYW1lIjoicmVmZXJyYWxDYXAiLCJ0eXBlIjoiZnVuY3Rpb24iLCJpbnB1dHMiOltdLCJvdXRwdXRzIjpbeyJuYW1lIjoiIiwidHlwZSI6InVpbnQyNTYiLCJpbnRlcm5hbFR5cGUiOiJ1aW50MjU2In1dLCJzdGF0ZU11dGFiaWxpdHkiOiJ2aWV3In0seyJuYW1lIjoicmVmZXJyYWxNaW50IiwidHlwZSI6ImZ1bmN0aW9uIiwiaW5wdXRzIjpbeyJuYW1lIjoiY291bnQiLCJ0eXBlIjoidWludDMyIiwiaW50ZXJuYWxUeXBlIjoidWludDMyIn0seyJuYW1lIjoicmVmZXJyZXIiLCJ0eXBlIjoiYWRkcmVzcyIsImludGVybmFsVHlwZSI6ImFkZHJlc3MifV0sIm91dHB1dHMiOltdLCJzdGF0ZU11dGFiaWxpdHkiOiJwYXlhYmxlIn0seyJuYW1lIjoicmVmZXJyYWxPcGVuIiwidHlwZSI6ImZ1bmN0aW9uIiwiaW5wdXRzIjpbXSwib3V0cHV0cyI6W3sibmFtZSI6IiIsInR5cGUiOiJib29sIiwiaW50ZXJuYWxUeXBlIjoiYm9vbCJ9XSwic3RhdGVNdXRhYmlsaXR5IjoidmlldyJ9LHsibmFtZSI6InJldmVhbGVkIiwidHlwZSI6ImZ1bmN0aW9uIiwiaW5wdXRzIjpbXSwib3V0cHV0cyI6W3sibmFtZSI6IiIsInR5cGUiOiJib29sIiwiaW50ZXJuYWxUeXBlIjoiYm9vbCJ9XSwic3RhdGVNdXRhYmlsaXR5IjoidmlldyJ9LHsibmFtZSI6InN1cHBseSIsInR5cGUiOiJmdW5jdGlvbiIsImlucHV0cyI6W10sIm91dHB1dHMiOlt7Im5hbWUiOiIiLCJ0eXBlIjoidWludDI1NiIsImludGVybmFsVHlwZSI6InVpbnQyNTYifV0sInN0YXRlTXV0YWJpbGl0eSI6InZpZXcifSx7Im5hbWUiOiJ0b3RhbFN1cHBseSIsInR5cGUiOiJmdW5jdGlvbiIsImlucHV0cyI6W10sIm91dHB1dHMiOlt7Im5hbWUiOiIiLCJ0eXBlIjoidWludDI1NiIsImludGVybmFsVHlwZSI6InVpbnQyNTYifV0sInN0YXRlTXV0YWJpbGl0eSI6InZpZXcifV0=">
+            </meta>
+            <meta name="nft-art-contract-presale" content="W10="></meta>
+            <nftart-mint-button address="0x25eF38481B25bFDA3989bE1bcB69235062B7956C" chain-id="1" />
           </div>
         </div>
         <!-- Nft -->
@@ -81,14 +90,14 @@
     </section>
 
     <!-- Social Links -->
-    <section class="py-24 w-full text-center px-1 md:px-0 ">
+    <section class="py-24 w-full text-center px-1 md:px-0">
       <div class="w-full md:w-1/2 bg-white rounded-2xl mx-auto p-9 shadow-xl">
         <h1 class="text-3xl md:text-5xl text-[#70d7fa]">Get in the box</h1>
         <div class="flex items-center justify-center w-full gap-6 pt-6">
           <!-- opensea -->
           <a href="https://opensea.io/collection/gang-boyz-1" target="_blank">
             <svg
-              class="w-6 h-6 md:w-8 md:h-8 xl:w-10 xl:h-10 "
+              class="w-6 h-6 md:w-8 md:h-8 xl:w-10 xl:h-10"
               viewBox="0 0 90 90"
               fill=""
               xmlns="http://www.w3.org/2000/svg"
@@ -141,8 +150,12 @@
       </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/web3modal@1.10.0/dist/index.umd.js"></script>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.8.0/ethers.umd.min.js"
+      integrity="sha512-R7ASZgpXeoiujgi/4yoTErsG7ZWVq57+vLtQmFZV1LKap0Gmgbc/QeafAmOz1n66/iKfp+w5mSKabl/6Mi6UKg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -4,3 +4,30 @@ body {
   font-family: "Poppins", sans-serif;
   background: #70d7fa;
 }
+
+.nft-art-gen-section button,
+.nft-art-gen-section select {
+  background: #70d7fa;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600 !important;
+  border-radius: 20px;
+  padding-inline: 30px;
+  padding-block: 20px;
+
+  line-height: 100%;
+  height: auto;
+  /* border: 3px solid #70d7fa; */
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.nft-art-gen-section button:hover,
+.nft-art-gen-section select:hover {
+  /* background-color: #020202; */
+  color: #feffff;
+}
+
+.nft-art-gen-mint-progress {
+  display: none;
+}
