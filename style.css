@@ -27,7 +27,7 @@ body {
   padding-block: 15px;
 }
 .nft-art-gen-section select option{
-  text-align: center;
+  /* text-align: center; */
 }
 
 .nft-art-gen-section button:hover,
